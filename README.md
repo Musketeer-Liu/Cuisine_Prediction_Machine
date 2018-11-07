@@ -24,5 +24,6 @@ A Cuisine Prediction API based on Python/Flask/SKLearn
 1. Setup Form in predict.html to receive client request and render result directly with preset Model defined for Database.
 2. Develop more related features with base templates and Deploy it to AWS or GCP to make this ingredients-cuisine service real for public use.
 
-## Thanks
-Many thanks to Yummly for Original JSON Dataset
+## Dataset
+0. Many thanks to Yummly for Original JSON Dataset.
+1. CSV dataset is oversized for GitHub, so please remove it before push commit.
