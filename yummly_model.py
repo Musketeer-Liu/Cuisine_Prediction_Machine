@@ -10,7 +10,7 @@ import numpy as np
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.naive_bayes import BernoulliNB 
+from sklearn.naive_bayes import BernoulliNB
 from sklearn.model_selection import train_test_split
 
 
@@ -54,12 +54,12 @@ def json_to_csv(file):
 
 
     dataset.to_csv('yummly_dataset.csv')
-    print('Complete JSON file transfrom to CSV Form')
+    print('Complete JSON file transfrom to CSV Form, {} lines data in total'.format(index))
 
 
 
 
-# Denote Features and Label 
+# Denote Features and Label
 def preprocess_dataset(dataset):
     feature_selected = dataset.columns[3:]
     label_selected = dataset.columns[2]
@@ -118,7 +118,7 @@ if not source_json.is_file():
     print("Program will close in 5 seconds ...")
     time.sleep(5)
     os._exit()
-elif not source_csv.is_file(): 
+elif not source_csv.is_file():
     print("Tranform JSON Data to CSV Data ==> ", end="")
     json_to_csv(source_json)
 print('We have CSV Data!')

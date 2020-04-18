@@ -23,7 +23,7 @@ def request_example():
     data_text_list = [
         {
             'id': 397784,
-            'ingredients': ['beef brisket', 'sauce tamota', 'carrots', 'white onion', 'fine sea salt']
+            'ingredients': ['beef brisket', 'sauce tamota', 'carrots', 'red onion', 'fine sea salt']
         },
         {
             'id': 123456,
@@ -33,9 +33,9 @@ def request_example():
 
 
     data_dict_list = json.dumps(data_text_list)
-    
+
     response = requests.post(url=url, data=data_dict_list)
-    
+
     return response
 
 
