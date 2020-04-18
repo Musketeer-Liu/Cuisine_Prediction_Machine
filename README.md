@@ -4,13 +4,19 @@
 A Cuisine Prediction API based on Python/Flask/SKLearn
 
 ## Setup
-0. ENV Config: Open the launch_info.json and append the content into ./.vscode/launch.json if it is necessary.
+0. Environment Setup: run `python3 -m venv venv`
+1. Activate Venv: run `source venv/bin/activate`
+2. Install Dependencies: run `pip install -r requirements.txt`
+3. Update Dependencies: run `pip freeze > requirements.txt`
+4. VScode Config: Open the launch_info.json and append the content into ./.vscode/launch.json if it is necessary.
+
+## Start
 1. Open 2 Separate Terminal to simulate API and Client and Open the Browser at 127.0.0.1:5000 homepage.
 2. Run python yummly_api.py in terminal to establish the web service and Refresh the browser after excutation to see valid ingredients input.
 3. Run python client_request.py in ANOTHER terminal to simulate client request and Refresh the browsewr after exutation to see cuisine prediction.
 4. Change the ingredients in client_request.py, run python client_request.py and Refresh the browser to view new cuisine prediction.
 
-## Mode
+## Modes
 0. Two Modes are available for Machine Learning Pipeline: Align Model parameters with valide dataset V.S. Predict Cuisine on final dataset.
 1. Two Modes are available for dataset scale: Smaller size for faster api development V.S. Whole dataset for machine learning tuning/prediction.
 
