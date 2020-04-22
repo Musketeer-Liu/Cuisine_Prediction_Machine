@@ -25,7 +25,7 @@ A Cuisine Prediction API based on Python/Flask/SKLearn
 1. Program will start to transfer JSON data to CSV data first if it has not been done, which will take about 10 mins with progress info in terminal.
 2. More results can refer to terminal and the whole demo results from both terminal and browser as document and photo format are in RESULTS folder.
 
-## Future
+## [Future](./DESIGN.md)
 0. Explore with more models and tune each model in depth for a better prediction accuracy.
 1. Setup Form in predict.html to receive client request and render result directly with preset Model defined for Database.
 2. Develop more related features with base templates and Deploy it to AWS or GCP to make this ingredients-cuisine service real for public use.
