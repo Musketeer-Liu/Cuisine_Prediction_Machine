@@ -43,4 +43,4 @@ def prediction():
             'ingredients': ['tvp', 'mutton', 'lemon cake mix', 'sauce tamota', 'jack cheese', 'fine sea salt']
         }
     ]
-    return render_template('prediction.html', title="Prediction", prediction=prediction)
+    return render_template('prediction.html', title="Prediction", test=test, body=body)
