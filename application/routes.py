@@ -3,6 +3,7 @@ import time
 from flask import redirect, render_template, url_for
 
 from application import app
+from application.forms import InputForm
 
 
 
@@ -28,6 +29,15 @@ def homepage():
     # return redirect(url_for('predict'))
     # return redirect('/predict')
     return render_template('homepage.html', title="Homepage", text = text)
+
+
+@app.route('/formtest')
+def testing():
+    form = InputForm()
+    if form.validate_on_submit():
+        id = form.data('ID')
+        recipe = form.data['Recipe']
+    return render_template('formtest.html', form=form)
 
 
 @app.route('/predict')
