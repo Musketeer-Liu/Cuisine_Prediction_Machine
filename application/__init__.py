@@ -4,7 +4,7 @@ from config import Config
 
 
 app = Flask(__name__)
-app.config.form_object(Config)
+app.config.from_object(Config)
 
 
 # 最后才导入防止循环导入

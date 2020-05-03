@@ -2,9 +2,10 @@
 
 {% block content %}
     <h2>Form Test</h2>
-    <form method="POST" action="{{ url_for('formtest') }}">
+    <form method="POST" action="{{ url_for('testing') }}">
         {{ form.hidden_tag()}}
-        {{ form.ID.label }}: {{ form.Recipe.label }}
+        {{ form.id.label }}: {{ form.id }}
+        {{ form.recipe.label }}: {{ form.recipe }}
         <input type="submit" value="Submit">
     </form>
 {% endblock %}
