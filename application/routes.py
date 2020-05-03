@@ -9,7 +9,7 @@ from application.forms import InputForm
 
 
 @app.route('/')
-@app.route('/homepage')
+@app.route('/index')
 def homepage():
     text = 'Welcome to Yummly Cuisine Prediction API, Redirecting in 3 seconds ...'
 
@@ -22,19 +22,19 @@ def homepage():
     # print(text)
     # return redirect(url_for('predict'))
     # return redirect('/predict')
-    return render_template('homepage.html', title="Homepage", text = text)
+    return render_template('index.html', title="Homepage", text = text)
 
 
-@app.route('/prediction')
+@app.route('/predict')
 def prediction():
     form = InputForm()
     if form.validate_on_submit():
         id = form.data('ID')
         recipe = form.data('Recipe')
-    return render_template('prediction.html', title="Prediction", form = form)
+    return render_template('predict.html', title="Cuisine Prediction", form = form)
 
 
-@app.route('/ingredient')
+@app.route('/sample')
 def ingredient():
     test = {'count': '1st time'}
     body = [
@@ -47,16 +47,16 @@ def ingredient():
             'ingredients': ['tvp', 'mutton', 'lemon cake mix', 'sauce tamota', 'jack cheese', 'fine sea salt']
         }
     ]
-    return render_template('ingredient.html', title="Ingredient", test=test, body=body)
+    return render_template('sample.html', title="Ingredient Sample", test=test, body=body)
 
 
-@app.route('/formtest')
+@app.route('/testing')
 def testing():
     form = InputForm()
     if form.validate_on_submit():
         id = form.data('ID')
         recipe = form.data['Recipe']
-    return render_template('formtest.html', form=form)
+    return render_template('testing.html', form=form)
 
 
 # Hello World
