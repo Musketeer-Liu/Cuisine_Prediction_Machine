@@ -1,0 +1,14 @@
+{% extends "__base__.html" %}
+
+{% block content %}
+    <h2>This is the  {{ test.count }} test!</h2>
+    {% for content in body %}
+    <div>
+        <h4> Test {{ content.id }} has recipe of: </h4>
+        {% for ingredient in content.ingredients %}
+        <p> {{ ingredient }} </p>
+        {% endfor %}
+        <br>
+    </div>
+    {% endfor %}
+{% endblock %}

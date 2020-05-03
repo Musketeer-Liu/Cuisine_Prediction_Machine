@@ -8,12 +8,6 @@ from application.forms import InputForm
 
 
 
-# Hello World
-@app.route('/helloworld')
-def helloworld():
-    return "Cuisine Prediction API!"
-
-
 @app.route('/')
 @app.route('/homepage')
 def homepage():
@@ -31,17 +25,17 @@ def homepage():
     return render_template('homepage.html', title="Homepage", text = text)
 
 
-@app.route('/formtest')
-def testing():
+@app.route('/prediction')
+def prediction():
     form = InputForm()
     if form.validate_on_submit():
         id = form.data('ID')
-        recipe = form.data['Recipe']
-    return render_template('formtest.html', form=form)
+        recipe = form.data('Recipe')
+    return render_template('prediction.html', title="Prediction", form = form)
 
 
-@app.route('/predict')
-def prediction():
+@app.route('/ingredient')
+def ingredient():
     test = {'count': '1st time'}
     body = [
         {
@@ -53,4 +47,27 @@ def prediction():
             'ingredients': ['tvp', 'mutton', 'lemon cake mix', 'sauce tamota', 'jack cheese', 'fine sea salt']
         }
     ]
-    return render_template('prediction.html', title="Prediction", test=test, body=body)
+    return render_template('ingredient.html', title="Ingredient", test=test, body=body)
+
+
+@app.route('/formtest')
+def testing():
+    form = InputForm()
+    if form.validate_on_submit():
+        id = form.data('ID')
+        recipe = form.data['Recipe']
+    return render_template('formtest.html', form=form)
+
+
+# Hello World
+@app.route('/helloworld')
+def helloworld():
+    return "Cuisine Prediction API!"
+
+
+
+
+
+
+
+
