@@ -2,7 +2,7 @@
 
 {% block content %}
     <h2>Prediction</h2>
-    <form action="" method="post" novalidate>
+    <form method="post" action="{{ url_for('extract') }}" novalidate>
         <!-- form.hidden_tag()模板参数生成了一个隐藏字段，其中包含一个用于保护表单免受CSRF攻击的token。 -->
         <!-- 对于保护表单，你需要做的所有事情就是在模板中包括这个隐藏的字段，并在Flask配置中定义SECRET_KEY变量，Flask-WTF会完成剩下的工作。 -->
         {{ form.hidden_tag() }}

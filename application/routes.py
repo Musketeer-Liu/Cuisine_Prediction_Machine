@@ -1,6 +1,6 @@
 import time
 
-from flask import redirect, render_template, url_for
+from flask import redirect, render_template, url_for, request
 
 from application import app
 from application.forms import InputForm
@@ -32,6 +32,15 @@ def prediction():
         id = form.data('ID')
         recipe = form.data('Recipe')
     return render_template('predict.html', title="Cuisine Prediction", form = form)
+
+
+@app.route('/extract', methods=['GET', 'POST'])
+def extract():
+    if request.method == 'POST':
+        # print(request.form)
+        id = request.form.get('id')
+        recipe = request.form.get('recipe')
+    return render_template('extract.html', title="Extracted Data", id=id, recipe=recipe)
 
 
 @app.route('/sample')
