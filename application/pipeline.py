@@ -22,7 +22,7 @@ from config import *
 from utility import *
 
 
-INGREDIENT_LIST = []
+INGREDIENT_MENU = []
 
 
 
@@ -43,7 +43,7 @@ def json_to_csv_production(file):
 
     ingredients_list = list(ingredients_set)
     print(len(ingredients_list))
-    INGREDIENT_LIST = ingredients_list
+    INGREDIENT_MENU = ingredients_list
 
 
     dataset = pd.DataFrame(columns=['id', 'cuisine']+ingredients_list)
@@ -52,6 +52,8 @@ def json_to_csv_production(file):
     data_template = np.zeros([len(cuisines), len(ingredients_list)+2])
     dataset = pd.DataFrame(data = data_template, columns=['id', 'cuisine']+ingredients_list)
 
+
+    print(Fore.BLUE + 'Transforming JSON data into CSV ...' + Fore.RESET)
     for index, cuisine in enumerate(cuisines):
         print('Processing Line: ', index)
 
@@ -64,14 +66,14 @@ def json_to_csv_production(file):
 
 
     dataset.to_csv('dataset_developing.csv')
-    print(Fore.GREEN + 'Complete JSON file transfrom to Production CSV Form, {} lines data in total'.format(index))
+    print('Complete JSON file transfrom to Production CSV Form, {} lines data in total'.format(index))
 
 
 # Transform JSON File to Developing CSV Form
 def json_to_csv_developing(file):
-    global INGREDIENT_LIST
+    global INGREDIENT_MENU
 
-    print(Fore.GREEN + 'Begin JSON file transfrom to Developing CSV Form...')
+    print(Fore.GREEN + 'Begin JSON file transfrom to Developing CSV Form... \n' + Fore.RESET)
     file = './cuisine.train.v2.json'
 
     with open(file, 'r', encoding='UTF-8') as f:
@@ -83,8 +85,10 @@ def json_to_csv_developing(file):
         ingredients_set = ingredients_set | ingredients
 
     ingredients_list = list(ingredients_set)
-    INGREDIENT_LIST = ingredients_list
-    print(INGREDIENT_LIST)
+    INGREDIENT_MENU = ingredients_list
+    print(Fore.BLUE + "Ingredient Menu:" + Fore.RESET)
+    print(INGREDIENT_MENU)
+    print('\n')
 
 
     dataset = pd.DataFrame(columns=['id', 'cuisine']+ingredients_list)
@@ -94,6 +98,8 @@ def json_to_csv_developing(file):
     data_template = np.zeros([len(cuisines), len(ingredients_list)+2])
     dataset = pd.DataFrame(data = data_template, columns=['id', 'cuisine']+ingredients_list)
 
+
+    print(Fore.BLUE + 'Transforming JSON data into CSV ...' + Fore.RESET)
     for index, cuisine in enumerate(cuisines):
         print('Processing Line: ', index)
 
@@ -106,7 +112,7 @@ def json_to_csv_developing(file):
 
 
     dataset.to_csv('dataset_developing.csv')
-    print(Fore.GREEN + 'Complete JSON file transfrom to Developing CSV Form, {} lines data in total'.format(index))
+    print(Fore.GREEN + 'Complete JSON file transfrom to Developing CSV Form, {} lines data in total'.format(index) + Fore.RESET)
 
 
 
@@ -155,7 +161,7 @@ def result_presentation(truevalue, prediction):
 
 ## Pipeline Module
 # Check source data
-print(Fore.RED + 'Pipeline Initiation ...')
+print(Fore.RED + 'Pipeline Initiation ...' + Fore.RESET)
 print('\n')
 
 print('Checking if source csv data is in current folder ==> ', end="")
@@ -180,7 +186,7 @@ else:
     if not source_csv_production.is_file():
         print("Tranform JSON Data to CSV Data Production ==> ", end="")
         json_to_csv_production(source_json)
-print('We have CSV Data!')
+print(Fore.RED + 'We have CSV Data!' + Fore.RESET)
 print('\n')
 
 
@@ -248,7 +254,7 @@ print(Fore.RED + 'Denote Features and Label ==> ', end="")
 X_train, y_train = preprocess_dataset(dataset_train)
 X_valid, y_valid = preprocess_dataset(dataset_valid)
 X_final, y_final = preprocess_dataset(dataset_final)
-print('Features and Label Denoted!')
+print('Features and Label Denoted!' + Fore.RESET)
 print('\n')
 
 
@@ -331,7 +337,7 @@ print(compare_bnb)
 print('\n')
 
 
-print('Pipeline Completed!')
+print(Fore.RED + 'Pipeline Completed!' + Fore.RESET)
 print('\n')
 
 

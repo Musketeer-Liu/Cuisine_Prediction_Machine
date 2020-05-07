@@ -310,7 +310,7 @@ def result():
 
 @app.route('/menu')
 def menu():
-    menu = INGREDIENT_LIST
+    menu = INGREDIENT_MENU
     return render_template('menu.html', title="Ingredient Menu", menu=menu)
 
 
@@ -350,7 +350,7 @@ def testing():
     return render_template('testing.html', form=form)
 
 
-# Hello World
+# Hello World - Just return string
 @app.route('/helloworld')
 def helloworld():
     return "Cuisine Prediction API!"
