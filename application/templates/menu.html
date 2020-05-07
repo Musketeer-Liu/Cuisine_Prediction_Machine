@@ -1,0 +1,10 @@
+{% extends "__base__.html" %}
+
+{% block content %}
+<div>
+    Ingredient Menu:
+    {% for item in menu %}
+    <p>{{ item }}</p>
+    {% endfor %}
+<div>
+{% endblock %}

@@ -54,14 +54,6 @@ def prediction():
     return render_template('predict.html', title="Cuisine Prediction", form = form)
 
 
-@app.route('/extract', methods=['GET', 'POST'])
-def extract():
-    if request.method == 'POST':
-        # print(request.form)
-        id = request.form.get('id')
-        recipe = request.form.get('ingredients')
-    return render_template('extract.html', title="Extracted Data", id=id, recipe=recipe)
-
 
 
 
@@ -316,6 +308,11 @@ def result():
 
 
 
+@app.route('/menu')
+def menu():
+    menu = INGREDIENT_LIST
+    return render_template('menu.html', title="Ingredient Menu", menu=menu)
+
 
 @app.route('/sample')
 def ingredient():
@@ -333,6 +330,17 @@ def ingredient():
     return render_template('sample.html', title="Ingredient Sample", test=test, body=body)
 
 
+# Testing Form Rendering from another URL
+@app.route('/extract', methods=['GET', 'POST'])
+def extract():
+    if request.method == 'POST':
+        # print(request.form)
+        id = request.form.get('id')
+        recipe = request.form.get('ingredients')
+    return render_template('extract.html', title="Extracted Data", id=id, recipe=recipe)
+
+
+# Testing Form Rendering
 @app.route('/testing')
 def testing():
     form = InputForm()

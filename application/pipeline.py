@@ -69,6 +69,8 @@ def json_to_csv_production(file):
 
 # Transform JSON File to Developing CSV Form
 def json_to_csv_developing(file):
+    global INGREDIENT_LIST
+
     print(Fore.GREEN + 'Begin JSON file transfrom to Developing CSV Form...')
     file = './cuisine.train.v2.json'
 
