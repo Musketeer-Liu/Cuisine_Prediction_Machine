@@ -8,9 +8,10 @@
 
 
 ## Waiting Work
-- Shrink testing csv for faster test
-- Give develop and production mode choice
+- Shrink production csv to development csv for faster test
+- Provide production and developemnt mode choice
 - Print the Terminal to the Frontend Page
+- Use OpenJS to give a better look
 - Use React Framework to pair with Flask
 
 
