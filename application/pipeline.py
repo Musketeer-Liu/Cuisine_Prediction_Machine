@@ -18,11 +18,17 @@ import os, json, time
 from pathlib import Path
 
 
+from config import *
+from utility import *
+
+
+INGREDIENT_LIST = []
+
 
 
 ## Utilities Module
-# Transform JSON File to CSV Form
-def json_to_csv(file):
+# Transform JSON File to Production CSV Form
+def json_to_csv_production(file):
     print('Begin JSON file transfrom to CSV Form...')
     file = './cuisine.train.v2.json'
 
@@ -36,6 +42,10 @@ def json_to_csv(file):
         ingredients_set = ingredients_set | ingredients
 
     ingredients_list = list(ingredients_set)
+    print(len(ingredients_list))
+    INGREDIENT_LIST = ingredients_list
+
+
     dataset = pd.DataFrame(columns=['id', 'cuisine']+ingredients_list)
 
 
@@ -53,8 +63,48 @@ def json_to_csv(file):
             dataset.loc[index, column] = 1
 
 
-    dataset.to_csv('yummly_dataset.csv')
-    print('Complete JSON file transfrom to CSV Form, {} lines data in total'.format(index))
+    dataset.to_csv('dataset_developing.csv')
+    print(Fore.GREEN + 'Complete JSON file transfrom to Production CSV Form, {} lines data in total'.format(index))
+
+
+# Transform JSON File to Developing CSV Form
+def json_to_csv_developing(file):
+    print(Fore.GREEN + 'Begin JSON file transfrom to Developing CSV Form...')
+    file = './cuisine.train.v2.json'
+
+    with open(file, 'r', encoding='UTF-8') as f:
+        cuisines = json.load(f)[:401]
+
+    ingredients_set = set()
+    for cuisine in cuisines:
+        ingredients = set(cuisine['ingredients'])
+        ingredients_set = ingredients_set | ingredients
+
+    ingredients_list = list(ingredients_set)
+    INGREDIENT_LIST = ingredients_list
+    print(INGREDIENT_LIST)
+
+
+    dataset = pd.DataFrame(columns=['id', 'cuisine']+ingredients_list)
+
+
+
+    data_template = np.zeros([len(cuisines), len(ingredients_list)+2])
+    dataset = pd.DataFrame(data = data_template, columns=['id', 'cuisine']+ingredients_list)
+
+    for index, cuisine in enumerate(cuisines):
+        print('Processing Line: ', index)
+
+        dataset.loc[index, 'id'] = cuisine['id']
+        dataset.loc[index, 'cuisine'] = cuisine['cuisine']
+
+        ingredients = cuisine['ingredients']
+        for column in ingredients:
+            dataset.loc[index, column] = 1
+
+
+    dataset.to_csv('dataset_developing.csv')
+    print(Fore.GREEN + 'Complete JSON file transfrom to Developing CSV Form, {} lines data in total'.format(index))
 
 
 
@@ -103,12 +153,13 @@ def result_presentation(truevalue, prediction):
 
 ## Pipeline Module
 # Check source data
-print('Pipeline Initiation ...')
+print(Fore.RED + 'Pipeline Initiation ...')
 print('\n')
 
 print('Checking if source csv data is in current folder ==> ', end="")
 source_json = Path("./cuisine.train.v2.json")
-source_csv = Path("./yummly_dataset.csv")
+source_csv_production = Path("./dataset_production.csv")
+source_csv_developing = Path("./dataset_developing.csv")
 
 
 
@@ -118,9 +169,15 @@ if not source_json.is_file():
     print("Program will close in 5 seconds ...")
     time.sleep(5)
     os._exit()
-elif not source_csv.is_file():
-    print("Tranform JSON Data to CSV Data ==> ", end="")
-    json_to_csv(source_json)
+
+if Config.TESTING:
+    if not source_csv_developing.is_file():
+        print(Fore.GREEN + "Tranform JSON Data to CSV Data Developing ==> ", end="")
+        json_to_csv_developing(source_json)
+else:
+    if not source_csv_production.is_file():
+        print("Tranform JSON Data to CSV Data Production ==> ", end="")
+        json_to_csv_production(source_json)
 print('We have CSV Data!')
 print('\n')
 
@@ -130,31 +187,48 @@ print('\n')
 # # Load Smaller Dataset for faster Debugging into 3 Parts ((Train-Valid)-Final)
 # print('Working on Smaller Dataset for Quick Debugging: ')
 # print('Loading Train Dataset ==> ', end="")
-# dataset_train = pd.read_csv('yummly_dataset.csv', header=0, nrows=300, low_memory=False)
+# dataset_train = pd.read_csv('dataset_production.csv', header=0, nrows=300, low_memory=False)
 # print('Loaded! ==> ', end="")
 
 # print('Loading Valid Dataset ==> ', end="")
-# dataset_valid = pd.read_csv('yummly_dataset.csv', header=0, skiprows=300, nrows=90)
+# dataset_valid = pd.read_csv('dataset_production.csv', header=0, skiprows=300, nrows=90)
 # print('Loaded! ==> ', end="")
 
 # print('Loading Final Dataset ==> ', end="")
-# dataset_final = pd.read_csv('yummly_dataset.csv', header=0, skiprows=390, nrows=10)
+# dataset_final = pd.read_csv('dataset_production.csv', header=0, skiprows=390, nrows=10)
 # print('Loaded!')
 
 
+# Load Smaller Dataset for Test Prediction into 3 Parts ((Train-Valid)-Final)
+if Config.TESTING:
+    print(Fore.GREEN + 'Working on Small Dataset for Test Prediction: ')
+    print('Loading Train Dataset ==> ', end="")
+    dataset_train = pd.read_csv('dataset_developing.csv', header=0, nrows=300, low_memory=False)
+    print('Loaded! ==> ', end="")
+
+    print('Loading Valid Dataset ==> ', end="")
+    dataset_valid = pd.read_csv('dataset_developing.csv', header=0, skiprows=300, nrows=90)
+    print('Loaded! ==> ', end="")
+
+    print('Loading Final Dataset ==> ', end="")
+    dataset_final = pd.read_csv('dataset_developing.csv', header=0, skiprows=390, nrows=10)
+    print('Loaded!')
+
+
 # Load Whole Dataset for Real Prediction into 3 Parts ((Train-Valid)-Final)
-print('Working on Whole Dataset for Real Prediction: ')
-print('Loading Train Dataset ==> ', end="")
-dataset_train = pd.read_csv('yummly_dataset.csv', header=0, nrows=30000, low_memory=False)
-print('Loaded! ==> ', end="")
+else:
+    print('Working on Whole Dataset for Real Prediction: ')
+    print('Loading Train Dataset ==> ', end="")
+    dataset_train = pd.read_csv('dataset_production.csv', header=0, nrows=30000, low_memory=False)
+    print('Loaded! ==> ', end="")
 
-print('Loading Valid Dataset ==> ', end="")
-dataset_valid = pd.read_csv('yummly_dataset.csv', header=0, skiprows=30000, nrows=9000)
-print('Loaded! ==> ', end="")
+    print('Loading Valid Dataset ==> ', end="")
+    dataset_valid = pd.read_csv('dataset_production.csv', header=0, skiprows=30000, nrows=9000)
+    print('Loaded! ==> ', end="")
 
-print('Loading Final Dataset ==> ', end="")
-dataset_final = pd.read_csv('yummly_dataset.csv', header=0, skiprows=39000)
-print('Loaded!')
+    print('Loading Final Dataset ==> ', end="")
+    dataset_final = pd.read_csv('dataset_production.csv', header=0, skiprows=39000)
+    print('Loaded!')
 
 
 # print('Saving Final Label... ')
@@ -168,7 +242,7 @@ print('\n')
 
 
 # Denote Features and Label
-print('Denote Features and Label ==> ', end="")
+print(Fore.RED + 'Denote Features and Label ==> ', end="")
 X_train, y_train = preprocess_dataset(dataset_train)
 X_valid, y_valid = preprocess_dataset(dataset_valid)
 X_final, y_final = preprocess_dataset(dataset_final)
