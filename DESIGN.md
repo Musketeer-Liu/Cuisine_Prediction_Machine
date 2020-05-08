@@ -8,12 +8,12 @@
 3. Give a thredhold on the test id, need to be higher than 100000, or 100000 + x
 4. Shrink production csv to development csv for faster test when loading the cuisines
 5. Get the Ingredients menu and render it to the Menu URL
-6. Colorful Printing in Terminal
+6. Colorful Printing in Terminal with Fore Package
+7. Give a better form input data reading policy, separated by comma
 
 
 ## Waiting Work
 
-- Give a better data reading policy, only word maybe
 - Give a choosing list/tag combine with textarea with react
 - Provide production and developemnt mode choice
 - Data Pipeline Simplified with colorful print
