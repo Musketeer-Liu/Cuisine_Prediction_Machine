@@ -71,7 +71,12 @@ def result():
     decode_list = data_bits.decode('ascii').split('&')
     # decode_list:['csrf_token=IjQwMjcyZGNhNjUxZTE0ODM4NGI0MWZmMjlmYTlkMDVjZGY3YzE3MTEi.XrJhgg.e01etQ0lhsQ2UpMunExN_XDnb_k', 'id=1', 'ingredients=beef+tomato', 'submit=Predict']
     id = int(decode_list[1].split('=')[1])
-    ingredients = re.split('\W+', decode_list[2])[1:]
+    recipes = decode_list[2].split('=')[1].split('%2C')
+
+    ingredients = []
+    for recipe in recipes:
+        ingredients.append(recipe.replace('+', ' ').strip())
+    print('Ingredients: ', ingredients)
 
     data_dict = dict()
     # Add BASE to id to avoid mess up w, we can also delete id input form
