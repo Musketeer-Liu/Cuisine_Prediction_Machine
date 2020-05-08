@@ -9,20 +9,30 @@
 4. Shrink production csv to development csv for faster test when loading the cuisines
 5. Get the Ingredients menu and render it to the Menu URL
 6. Colorful Printing in Terminal with Fore Package
-7. Give a better form input data reading policy, separated by comma
+7. Give a better form input data reading mechanism -- separated by comma
+8. Provide Ingredients List onto Menu Page
 
 
 ## Waiting Work
 
-- Give a choosing list/tag combine with textarea with react
+- React pair with Flask
+  - Use React Framework to pair with Flask
+  - Give a choosing list/tag combine with textarea with React
+
+- Data Pipeline
+  - Data Pipeline Simplified with Functions
+  - Seperate the Data Pipeline from Routes
+
+- Logging System
+  - Change the print to logging system
+
+- Dynamic Frontend
+  - Print the Terminal to the Frontend Page
+  - Use OpenJS to give a better print
+
 - Provide production and developemnt mode choice
-- Data Pipeline Simplified with colorful print
-- Print the Terminal to the Frontend Page
-- Seperate the data pipeline from routes
-- Change the print to logging system
-- Use OpenJS to give a better look
-- Use React Framework to pair with Flask
+
 - Integrate Database for further application
-- Give Ingredients List
+
 
 
