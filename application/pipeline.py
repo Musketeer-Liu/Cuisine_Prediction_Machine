@@ -178,7 +178,7 @@ if not source_json.is_file():
     time.sleep(5)
     os._exit()
 
-if Config.TESTING:
+if Config.FLASK_ENV == 'development':
     if not source_csv_developing.is_file():
         print(Fore.GREEN + "Tranform JSON Data to CSV Data Developing ==> ", end="")
         json_to_csv_developing(source_json)
@@ -208,7 +208,7 @@ print('\n')
 
 
 # Load Smaller Dataset for Test Prediction into 3 Parts ((Train-Valid)-Final)
-if Config.TESTING:
+if Config.FLASK_ENV == 'development':
     print(Fore.GREEN + 'Working on Small Dataset for Test Prediction: ')
     print('Loading Train Dataset ==> ', end="")
     dataset_train = pd.read_csv('dataset_developing.csv', header=0, nrows=300, low_memory=False)

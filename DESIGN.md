@@ -11,28 +11,29 @@
 6. Colorful Printing in Terminal with Fore Package
 7. Give a better form input data reading mechanism -- separated by comma
 8. Provide Ingredients List onto Menu Page
+9. Setup FLASK_ENV as development and provide choice based on this
+
+
 
 
 ## Waiting Work
 
-- React pair with Flask
-  - Use React Framework to pair with Flask
-  - Give a choosing list/tag combine with textarea with React
-
 - Data Pipeline
   - Data Pipeline Simplified with Functions
-  - Seperate the Data Pipeline from Routes
+  - Separate the Data Pipeline from Routes
+  - Separate the INGREDIENTS_MENU feature for always using
 
 - Logging System
   - Change the print to logging system
-
-- Dynamic Frontend
   - Print the Terminal to the Frontend Page
+
+- React pair with Flask
+  - Use React Framework to pair with Flask
+  - Give a choosing list/tag combine with textarea with React
+  - Support Search Bar and Choosing from Menu Tags with React
   - Use OpenJS to give a better print
 
-- Provide production and developemnt mode choice
-
-- Integrate Database for further application
+- NoSQL Database Integration for further application
 
 
 
