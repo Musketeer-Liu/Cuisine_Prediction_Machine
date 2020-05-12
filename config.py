@@ -2,8 +2,9 @@ import os
 
 
 class Config(object):
-    # # 开发模式下使用这个参数，否则将这行Comment掉，即变为生产环境
+    # # Developing Mode, Mutually Exclusive with Production
     # FLASK_ENV='development'
+    # Production Mode, Mutually Exclusive with Development
     FLASK_ENV='production'
 
     # Flask-WTF use SECRET_KEY for Encryption Token to aviod Cross-Site Request Forgery (CSRF)

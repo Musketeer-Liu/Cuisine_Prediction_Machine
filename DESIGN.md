@@ -11,7 +11,7 @@
 6. Colorful Printing in Terminal with Fore Package
 7. Give a better form input data reading mechanism -- separated by comma
 8. Provide Ingredients List onto Menu Page
-9. Setup FLASK_ENV as development and provide choice based on this
+9. Setup FLASK_ENV with developing and production option in config.py for smaller and whole dataset test.
 
 
 
@@ -21,7 +21,7 @@
 - Data Pipeline
   - Data Pipeline Simplified with Functions
   - Separate the Data Pipeline from Routes
-  - Separate the INGREDIENTS_MENU feature for always using
+  - Separate the INGREDIENTS_MENU feature for constant showing
 
 - Logging System
   - Change the print to logging system
