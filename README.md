@@ -28,13 +28,13 @@ A Cuisine Prediction API (V4) based on Flask/React-Python/SKLearn
 
 ## Dataset
 1. Production Dataset:
-2. Processing: ~ 39967 Lines
-3. Ingredient Menu: 6714 ingredients
-4. CSV Size: 1.07GB (Too large, need to be removed before push to GitHub)
-5. Developing Dataset:
-6. Processing: 400 Lines
-7. Ingredient Menu: 1160 ingredients
-8. CSV Size: ~ 100MB (If over 100MB, need to be removed before push to GitHub)
+   - Processing: ~ 39967 Lines
+   - Ingredient Menu: 6714 ingredients
+   - CSV Size: 1.07GB (Too large, need to be removed before push to GitHub)
+2. Developing Dataset:
+   - Processing: 400 Lines
+   - Ingredient Menu: 1160 ingredients
+   - CSV Size: ~ 100MB (If over 100MB, need to be removed before push to GitHub)
 
 ## [Future](./DESIGN.md)
 0. Integrated with React for better frontend look
