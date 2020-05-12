@@ -23,10 +23,31 @@ from utility import *
 
 
 INGREDIENT_MENU = []
+FILE = './cuisine.train.v2.json'
+
+
+## Transform Module
+def generate_ingredient_menu():
+    global INGREDIENT_MENU
+
+    file = './cuisine.train.v2.json'
+
+    with open(file, 'r', encoding='UTF-8') as f:
+        cuisines = json.load(f)
+
+
+    ingredients_set = set()
+    for cuisine in cuisines:
+        ingredients = set(cuisine['ingredients'])
+        ingredients_set = ingredients_set | ingredients
+
+    ingredients_list = list(ingredients_set)
+    print(len(ingredients_list))
+    INGREDIENT_MENU = ingredients_list
+    return ingredients_list
 
 
 
-## Utilities Module
 # Transform JSON File to Production CSV Form
 def json_to_csv_production(file):
     print('Begin JSON file transfrom to CSV Form...')
@@ -65,7 +86,7 @@ def json_to_csv_production(file):
             dataset.loc[index, column] = 1
 
 
-    dataset.to_csv('dataset_developing.csv')
+    dataset.to_csv('dataset_production.csv')
     print('Complete JSON file transfrom to Production CSV Form, {} lines data in total'.format(index))
 
 
