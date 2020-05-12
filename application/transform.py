@@ -63,8 +63,11 @@ def json_to_csv_production(file):
         ingredients_set = ingredients_set | ingredients
 
     ingredients_list = list(ingredients_set)
-    print(len(ingredients_list))
+    print("Production Ingredients Menu Length:", len(ingredients_list))
     INGREDIENT_MENU = ingredients_list
+    print(Fore.BLUE + "Ingredient Menu:" + Fore.RESET)
+    print(INGREDIENT_MENU)
+    print('\n')
 
 
     dataset = pd.DataFrame(columns=['id', 'cuisine']+ingredients_list)
@@ -107,6 +110,7 @@ def json_to_csv_developing(file):
 
     ingredients_list = list(ingredients_set)
     INGREDIENT_MENU = ingredients_list
+    print("Production Ingredients Menu Length:", len(ingredients_list))
     print(Fore.BLUE + "Ingredient Menu:" + Fore.RESET)
     print(INGREDIENT_MENU)
     print('\n')
