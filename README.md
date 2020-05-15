@@ -20,11 +20,11 @@ A Cuisine Prediction API (V4) based on Flask/React-Python/SKLearn
 
 ## Runtime
 0. Developing Mode runtime:
-- With dataset_developing.csv: ~ 5 mins
-- Withpout dataset_developing.csv: ~ 15mins
+   - With dataset_developing.csv: ~ 5 mins
+   - Withpout dataset_developing.csv: ~ 15mins
 1. Production Mode runtime:
-- With dataset_production.csv: ~ 10 mins
-- Without dataset_production.csv: ~ 30 mins
+   - With dataset_production.csv: ~ 10 mins
+   - Without dataset_production.csv: ~ 30 mins
 
 ## Dataset
 1. Production Dataset:
