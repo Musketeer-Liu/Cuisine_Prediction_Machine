@@ -21,6 +21,7 @@ from config import *
 
 
 
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/')
 def index():
@@ -60,7 +61,7 @@ def homepage():
 BASE = int(1e5)
 
 
-@app.route('/result', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def result():
 
 

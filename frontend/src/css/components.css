@@ -1,0 +1,60 @@
+.navbar {
+    background-color: #222;
+  }
+
+  .navbar-nav .nav-item-css{
+    padding-right: 22px;
+    padding-bottom: 12px;
+    padding-top: 8px;
+
+  }
+
+  .navbar-nav .nav-item-css:hover {
+    border-bottom: 3px solid #fff;
+
+  }
+
+  .navbar-light .navbar-nav .link-css {
+    color: #bbb;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 600;
+  }
+
+  .navbar-light .navbar-nav .link-css:hover {
+      color: white;
+    }
+    
+  
+  .navbar-light .navbar-toggler {
+    border-color: rgb(255, 251, 251);
+  }
+
+
+  .jumbo {
+    background: url('../assets/boatImage.jpg') no-repeat fixed bottom;
+    background-size: cover;
+    color: #efefef;
+    height: 200px;
+    position: relative;
+    z-index: -2;
+  }
+
+  .overlay {
+    background-color: #000;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
+  .slider {
+    background-color: #000;
+    opacity: 0.6;
+     z-index: -1;
+  }
+  .h2-class{
+    font-size: 2.25rem;
+  }

@@ -1,9 +1,0 @@
-<!doctype html>
-<title>Yummly Cuisine Prediction API</title>
-<dl>
-    {% for r in result %}
-    <dt>Request ID: {{r.id}}</dt>
-    <dd>-- Ingredients: {{r.ingredients}}</dd>
-    <dd>-- Cusine Prediction: {{r.cuisine}} => Corresponding Probability: {{r.probability}}</dd>
-    {% endfor %}
-</dl>

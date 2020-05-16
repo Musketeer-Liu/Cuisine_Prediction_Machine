@@ -9,3 +9,5 @@ class Config(object):
 
     # Flask-WTF use SECRET_KEY for Encryption Token to aviod Cross-Site Request Forgery (CSRF)
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+
+    CORS_HEADERS = 'Content-Type'
