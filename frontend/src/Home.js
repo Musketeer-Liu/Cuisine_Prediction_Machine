@@ -19,7 +19,7 @@ export const Home = () => (
 
 
 
-  <h1 className='mb'>Demo Sample !</h1>
+  <h1 className='mb'>Demo Samples: </h1>
 
   <Carousel>
 
@@ -33,9 +33,9 @@ export const Home = () => (
       alt="First slide"
     />
     <Carousel.Caption>
-    <h2 align ='left'>This is the first time Test !</h2>
+    <h2 align ='left'>This is the 1st time Test!</h2>
 
-    <h3 align ='left'>Test 122334 has recipe of :</h3>
+    <h3 align ='left'>Test 1 has recipe of :</h3>
       <h4 align ='left'>Yogurt<br />Carrots<br />Sauce Tamoto<br />Salt</h4>
 
     </Carousel.Caption>
@@ -51,9 +51,9 @@ export const Home = () => (
       alt="First slide"
     />
     <Carousel.Caption>
-    <h2 align ='left'>This is the first time Test !</h2>
+    <h2 align ='left'>This is the 2nd time Test !</h2>
 
-    <h3 align ='left'>Test 13245 has recipe of :</h3>
+    <h3 align ='left'>Test 2 has recipe of :</h3>
 
       <h4 align ='left'>White Onion <br />Carrots<br />Chicken<br />Sauce Tamoto</h4>
 
@@ -70,9 +70,9 @@ export const Home = () => (
       alt="First slide"
     />
     <Carousel.Caption>
-    <h2 align ='left'>This is the first time Test !</h2>
+    <h2 align ='left'>This is the 3rd time Test !</h2>
 
-    <h3 align ='left'>Test 444334 has recipe of :</h3>
+    <h3 align ='left'>Test 3 has recipe of :</h3>
 
       <h4 align ='left'>White Onion <br />Spaghetti<br />Carrots<br />Tamoto</h4>
 
@@ -90,9 +90,9 @@ export const Home = () => (
       alt="First slide"
     />
     <Carousel.Caption>
-    <h2 align ='left'>This is the first time Test !</h2>
+    <h2 align ='left'>This is the 4th time Test !</h2>
 
-    <h3 align ='left'>Test 444334 has recipe of :</h3>
+    <h3 align ='left'>Test 4 has recipe of :</h3>
 
       <h4 align ='left'>White Onion <br />Carrots<br />Sauce Tamoto</h4>
 
@@ -109,9 +109,9 @@ export const Home = () => (
     />
 
     <Carousel.Caption>
-    <h2 align ='left'>This is the first time Test !</h2>
+    <h2 align ='left'>This is the 5th time Test !</h2>
 
-    <h3 align ='left'>Test 423334 has recipe of :</h3>
+    <h3 align ='left'>Test 5 has recipe of :</h3>
 
       <h4 align ='left'>Chicken <br />Cheese <br />Fine Sea Salt<br />Sauce Tamoto</h4>
 
@@ -127,9 +127,9 @@ export const Home = () => (
     />
 
     <Carousel.Caption>
-    <h2 align ='left'>This is the first time Test !</h2>
+    <h2 align ='left'>This is the 6th time Test !</h2>
 
-    <h4 align ='left'>Test 32322 has recipe of :</h4>
+    <h4 align ='left'>Test 6 has recipe of :</h4>
 
       <h3 align ='left'>Rice<br />Egg<br />Chicken<br />Beef Brisket</h3>
     </Carousel.Caption>
