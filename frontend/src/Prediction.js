@@ -121,7 +121,7 @@ componentDidMount(){
 
 
     //React Http post request is made
-     axios.post('http://localhost:5000/predict?id=' + this.state.id + '&recipes=' + ingredients, {
+     axios.post('http://localhost:5000/prediction?id=' + this.state.id + '&recipes=' + ingredients, {
         })
 
     //get the response of request

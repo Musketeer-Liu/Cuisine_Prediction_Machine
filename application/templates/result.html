@@ -2,7 +2,7 @@
 
 {% block content %}
     <dl>
-    {% for r in result %}
+    {% for r in results %}
     <dt>Request ID: {{r.id}}</dt>
     <dd>-- Ingredients: {{r.ingredients}}</dd>
     <dd>-- Cusine Prediction: {{r.cuisine}} => Corresponding Probability: {{r.probability}}</dd>
