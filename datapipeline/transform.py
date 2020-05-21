@@ -176,3 +176,13 @@ def result_presentation(truevalue, prediction):
         compare += [(a, b)]
         if a == b: correct += 1
     return compare, correct
+
+
+
+
+
+
+
+
+
+
